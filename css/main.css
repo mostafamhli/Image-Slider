@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Arial;
+}
+
+
+.slider-container {
+    height: 440px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.slider-container img {
+    max-width: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1;
+}
+
+.slider-container img.active {
+    opacity: 1;
+}
+
+.slider-container .slide-number {
+    position: absolute;
+    left: 50%;
+    top: -2%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, .6);
+    color: #FFF;
+    padding: 5px 10px;
+    font-size: 20px;
+    z-index: 2;
+    border-radius: 6px;
+}
+
+@media(max-width:767px) {
+    .slider-container .slide-number {
+        top:12%;
+    }
+}
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+@media(max-width:767px) {
+    .slider-controls {
+        width: 400px;
+        max-width: 100%;
+        margin-top: -10px;
+    }
+}
+
+.slider-controls span {
+    height:fit-content
+}
+
+.slider-controls span:first-child,
+.slider-controls span:last-child {
+    background-color: #009688;
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+    user-select: none;
+    width: 20%;
+}
+
+.slider-controls span:first-child {
+    margin-right: 10px;
+}
+
+.slider-controls span:last-child {
+    margin-left: 10px;
+}
+
+.slider-controls span:first-child.disabled,
+.slider-controls span:last-child.disabled {
+    background-color: rgba(0, 150, 136, 0.5);
+    cursor: no-drop;
+}
+
+.slider-controls span.indicators {
+    width: 60%;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.slider-controls span.indicators ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.slider-controls .indicators ul li {
+    display: block;
+    background-color: #F6F6F6;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    height: 28px;
+    width: 28px;
+    border-radius: 4px;
+    margin: 0 2px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.slider-controls .indicators ul li.active {
+    background-color: #009688;
+    color: #FFF;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+}
